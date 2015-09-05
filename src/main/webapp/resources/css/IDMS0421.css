@@ -1,0 +1,5 @@
+/* CSS Document */
+@charset "utf-8";
+div.PurviewType { border: 1px solid #95B8E7; width: 487px;}
+div.PurviewType >label{  width:120px;display: inline-block;  margin:3px 3px;}
+div.PurviewType>label>input[type=radio]{  float:left; }

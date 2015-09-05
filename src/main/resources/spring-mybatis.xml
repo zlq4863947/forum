@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:wss="http://jax-ws.dev.java.net/spring/servlet"
+	xmlns:ws="http://jax-ws.dev.java.net/spring/core"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+		http://jax-ws.dev.java.net/spring/core http://jax-ws.java.net/spring/core.xsd
+     	http://jax-ws.dev.java.net/spring/servlet http://jax-ws.java.net/spring/servlet.xsd">
+	
+	<context:annotation-config/>
+	<context:component-scan base-package="jp.co.ellite.forum.validator.impl" />
+	<context:component-scan base-package="jp.co.ellite.forum.service.impl" />
+	<context:component-scan base-package="jp.co.ellite.forum.ws" />
+	
+	<bean id="messageSource" class="jp.co.ellite.forum.common.ForumResourceBundleMessageSource">
+		<property name="basenames">
+			<!-- ロケールと拡張子は省略 -->
+			<array>
+				<value>/WEB-INF/messages/messages</value>
+				<value>/WEB-INF/messages/CommonMessages</value>
+			</array>
+		</property>
+		<property name="cacheSeconds" value="60" />
+		<property name="fallbackToSystemLocale" value="false" />
+		<property name="useCodeAsDefaultMessage" value="true" />
+	</bean>
+		
+	<bean id="messageSourceAccessor" class="jp.co.ellite.forum.common.ForumMessageSourceAccessor">
+		<constructor-arg>
+			<ref bean="messageSource" />
+		</constructor-arg>
+	</bean>			
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="classpath:jdbc.properties"/>
+	</bean>
+	
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="defaultAutoCommit" value="false" />
+		<property name="maxWait" value="${jdbc.maxWait}" />
+		<property name="maxActive" value="${jdbc.maxActive}" />
+	</bean>
+		
+	<!-- SqlSessionFactoryBeanの定義 TODO-->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="configLocation" value="classpath:mybatis-mapper-config.xml" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<!-- ファイルアップロード設定(使用するときはcommons-fileuploadを依存関係に追加すること) -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="10000000" />
+	</bean>
+	
+	<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+	            <!-- 最大アップロードサイズ超過の例外 -->
+	            <prop key="org.springframework.web.multipart.MaxUploadSizeExceededException">redirect:/error_uploadfile.jsp</prop>
+	        </props>
+		</property>
+	</bean>
+	
+	<!-- mapperコンポーネントのスキャンの設定 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		
+		<property name="basePackage" value="jp.co.ellite.forum.persistence.dao" />
+	</bean>
+	
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	<!-- トランザクションマネージャの設定 -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- web service setting
+	<wss:binding url="/service/accountAuthority">
+		<wss:service>
+			<ws:service bean="#referAccountAuthorityService" />
+		</wss:service>
+	</wss:binding>
+ -->
+</beans>

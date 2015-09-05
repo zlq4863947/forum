@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<!-- カラム名とJavaフィールドのマッピングを自動的にキャメルケースするか -->
+		<setting name="mapUnderscoreToCamelCase" value="true" />
+		<!-- ネストしたStatementでRowBoundsを利用できるようにするか(true⇒利用不可) -->
+		<setting name="safeRowBoundsEnabled" value="true" />
+		<!-- ネストしたStatementでResultHandlerを利用できるようにするか(true⇒利用不可) -->
+		<setting name="safeResultHandlerEnabled" value="true" />
+		<!-- SQLログ出力用の設定(.で終わるようにすること) -->
+		<setting name="logPrefix" value="mybatis.sql.log."/>
+
+		<setting name="cacheEnabled" value="true"/>
+	</settings>
+	<mappers>
+		<!-- mybatis Mapping -->
+		<mapper resource="jp/co/ellite/forum/persistence/mapper/table/MstUserMapper.xml"/>
+
+	</mappers>
+</configuration>

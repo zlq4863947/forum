@@ -1,0 +1,23 @@
+/* CSS Document */
+
+@charset "utf-8";
+
+
+table.userPurview {
+border-collapse:collapse;
+border:1px solid #95B8E7;
+}
+table.userPurview>thead{
+background:#f3f3f3;
+}
+table.userPurview>thead th{
+	font-weight: normal;
+}
+table.userPurview th,table.userPurview td {
+	border:1px  dotted #ccc;
+	padding:5px;
+	width:244px;
+}
+table.userPurview th+th,table.userPurview td+td {
+	border-left:none;
+}

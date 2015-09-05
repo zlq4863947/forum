@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+		
+		<context:annotation-config/>
+		<context:component-scan base-package="jp.co.ellite.forum.controller" />
+		
+		<mvc:interceptors>
+			<mvc:interceptor>
+				<mvc:mapping path="/**" />
+				<bean class="jp.co.ellite.forum.common.filter.SessionTimeoutInterceptor">
+					<property name="excludeUrls">
+						<list>
+							<!-- AD認証不要、開発環境要 -->
+							<value>/IDMS0000/IDMS0000.htm</value>
+							<value>/IDMS0000/login.htm</value>
+							<!-- AD認証不要、開発環境要 -->
+							<value>/IDMS0000/accessdeny.htm</value>
+							<value>/IDMS0000/logindeny.htm</value>
+							<value>/IDMS0000/timeout.htm</value>
+						</list>	
+					</property>
+				</bean>
+			</mvc:interceptor>
+		</mvc:interceptors>
+	
+		<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
+		<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+			<property name="messageConverters">
+				<util:list id="beanList">
+					<ref bean="mappingJacksonHttpMessageConverter"/>
+				</util:list>	
+			</property>
+		</bean>
+		
+		<bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+			<property name="supportedMediaTypes">
+				<list>
+					<value>text/html;charset=UTF-8</value>
+					<value>application/json;charset=UTF-8</value>
+				</list>	
+			</property>
+		</bean>
+		<!--
+		<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+			<property name="prefix" value="/WEB-INF/jsp/**/"/>
+			<property name="suffix" value=".jsp"/>
+		</bean>
+			-->
+		<bean class="org.springframework.web.servlet.view.ResourceBundleViewResolver">
+			<property name="basename" value="views"/>
+		</bean>	
+	
+</beans>

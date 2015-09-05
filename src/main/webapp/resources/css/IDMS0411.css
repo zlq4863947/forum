@@ -1,0 +1,13 @@
+/* CSS Document */
+
+@charset "utf-8";
+div.userDetail{line-height: 2em;}
+div.userDetail >label{  width:125px;display: inline-block; }
+div.userDetail >input[readonly=readonly]{  background:#e1e1e1; border:1px solid #c0c0c0; }
+.menutable{margin-top: -10px;}
+.menutable select{width:100%; }
+.menutable select.stab{height:116px;}
+.menutable select.smenu{height:360px;}
+.menutable input[type=button]{width:35px; display:block;margin-bottom: 3px;}
+.menutable td{padding:3px;}
+.menutable tr:first-child>td{height:40px;}

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<!-- Appenders -->
+	<!-- ロガー名を出力したい場合はレイアウトに $c を追加する -->
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+		<param name="Encoding" value="UTF-8" />
+		<param name="Target" value="System.out" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<!-- 開発用設定: %lは高負荷のため利用注意 -->
+			<param name="ConversionPattern"
+				value="%d{yyyy-MM-dd HH\:mm\:ss} %5p [%F\:%L] %c{8}.%M() - %m%n" />
+
+			<!-- リリース設定 <param name="ConversionPattern" value="%d{yy/MM/dd HH:mm:ss.SSS} 
+				%-5p [R:%.5X{reqId} S:%.5X{sessionId}] [%X{userId}] %X{messageId} %m%n" /> -->
+		</layout>
+	</appender>
+	<!-- ロガー名を出力したい場合はレイアウトに $c を追加する -->
+	<appender name="idmsapp" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="Encoding" value="UTF-8" />
+		<!-- <param name="File" value="${tomcat.server.log.dir}/IDMS.log" /> -->
+		<param name="File" value="${catalina.base}/logs/IDMS.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.txt'" />
+		<param name="threshold" value="debug" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<!-- 開発用設定: %lは高負荷のため利用注意 -->
+			<param name="ConversionPattern"
+				value="%d{yyyy-MM-dd HH\:mm\:ss} %-5p [%F\:%L] %M() - %m%n" />
+
+			<!-- リリース設定 <param name="ConversionPattern" value="%d{yy/MM/dd HH:mm:ss.SSS} 
+				%-5p [R:%.5X{reqId} S:%.5X{sessionId}] [%X{userId}] %X{messageId} %m%n" /> -->
+		</layout>
+	</appender>
+	<!-- appender name="idmstrail" class="org.apache.log4j.jdbc.JDBCAppender">
+		<param name="URL" value="jdbc:mysql://localhost:3306/forum" />
+		<param name="driver" value="com.mysql.jdbc.Driver" />
+		<param name="user" value="root" />
+		<param name="password" value="cordys" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="INSERT INTO operation_log(operate_time,log_type, user_alias,user_name,employee_no,ip_address,remote_host_name,log_content,menu_name) VALUES (current_timestamp(6), '%X{type}', '%X{userAlias}', '%X{userName}', '%X{employeeNo}', '%X{ipAddress}', '%X{remoteHostName}', '%m','%X{menuId}')" />
+		</layout>
+		<filter class="jp.co.ellite.forum.log.filter.TrailLogFilter">
+			<param name="LevelMin" value="20050" />
+			<param name="LevelMax" value="20050" />
+		</filter>
+	</appender -->
+
+	<!-- QL表示用 -->
+	<logger name="mybatis.sql.log">
+		<level value="debug" />
+	</logger>
+
+	<!-- トランザクション関連 -->
+	<logger
+		name="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<level value="debug" />
+	</logger>
+
+	<!-- Spring Web関連 -->
+	<logger name="org.springframework.web">
+		<level value="error" />
+	</logger>
+
+	<!-- アプリケーション一般用 -->
+	<logger name="errorOutput">
+		<level value="debug" />
+		<appender-ref ref="idmsapp" />
+	</logger>
+	<!-- アプリケーション証跡用 -->
+	<logger name="trailOutput">
+		<level value="info" />
+		<appender-ref ref="idmstrail" />
+	</logger>
+
+	<!-- mybatis-spring連携 -->
+	<logger name="org.mybatis.spring">
+		<level value="error" />
+	</logger>
+
+	<root>
+		<level value="debug" />
+		<appender-ref ref="console" />
+	</root>
+</log4j:configuration>

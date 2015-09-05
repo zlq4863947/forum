@@ -1,0 +1,186 @@
+/* CSS Document */
+
+@charset "utf-8";
+
+@import url('apps.css');
+
+* {
+	font-size:14px;
+	font-family: 'Segoe UI', Arial, Meiryo, sans-serif;
+}
+
+body {
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	height: 100%;
+	background: #ffffff;
+}
+
+ul, ol {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+	color: #333333;
+}
+a:hover {
+	text-decoration: none;
+	color: #ff0000;
+}
+
+/* ================================================================  header css ================================================================ */
+
+.headbg {
+	background: url("../images/headbg.jpg") repeat-x scroll left top transparent;
+	border-top: 0px #000000;
+	width: 100%;
+}
+.logo {
+	float: left;
+	margin-top: 0px;
+}
+.topnav {
+	float: right;
+	margin: 30px 0 0;
+}
+.topnav li {
+	float: left;
+	letter-spacing: 1px;
+	line-height: 44px;
+	padding: 0 12px;
+	text-align: center;
+	width: 94px;
+}
+.topseled {
+	background: url(../images/navbg.png) no-repeat center center;
+}
+.topseled a {
+	color: #ffffff;
+}
+.topnav li a {
+	font-size: 14px;
+	font-family: MS gothic;
+}
+.logareg li {
+	color: #FFFFFF;
+	float: left;
+	height: 31px;
+	line-height: 31px;
+	text-align: center;
+	width: 60px;
+}
+
+.button {
+	padding:1px;
+	margin-top:10px;
+	margin-left:10px;
+	width:80px;
+}
+
+p {
+	font-size: 16px !important;
+	font-weight: bolder;
+}
+
+.over {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #f5f5f5;
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+	z-index: 10000;
+}
+
+.layoutForLoading {
+	display: none;
+	position: absolute;
+	top: 40%;
+	left: 40%;
+	width: 20%;
+	height: 20%;
+	z-index: 10001;
+	text-align: center;
+}
+
+.updatedCellbgc {
+	background-color: #0092DC;
+}
+
+.errorCellbgc {
+	background-color: #FF0000;
+}
+.disabeledCellbgc {
+	background-color: #CCCCCC;
+}
+.rowError {
+	background-color: red;
+}
+.hasError{
+	background-color: #FFC7C8;
+}
+
+.pagination-first,.pagination-prev,.pagination-next,.pagination-last {
+	background-image:none;
+}
+.l-btn-icon,.l-btn-left .l-btn-empty{
+	width:16px;
+}
+.login-border {
+	border-color: #000;
+	border-style: solid;
+	border-width: 1px;
+	width: 420px;
+	height: 300px;
+}
+
+/* ================================================================  header css ================================================================ */
+
+
+.hasErrorForEasyUI{
+	border-color: #FFA8A8;
+	background-color: #FFC7C8;
+}
+
+.validatebox-invalid {
+	background-color: #FFC7C8 !important;
+}
+
+
+.main01:hover,.main01.active{
+    background-color:#6BCDFF;
+    /* Firefox 3.6 */
+    background-image: -moz-linear-gradient(top, #6BCDFF, #FFFFFF);
+    /* Safari & Chrome */
+    background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #FFFFFF),color-stop(1, #6BCDFF));
+    /* IE6 & IE7 */
+    filter: progid :DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#6BCDFF', endColorstr='#FFFFFF');
+    /* IE8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#6BCDFF', endColorstr='#FFFFFF')";
+    /** IE9 IE10 **/
+    background: -ms-linear-gradient(top, #6BCDFF 0%,#FFFFFF 100%);   
+}
+
+.main01  {
+	line-height:30px;
+    font-size:20px;
+    font-weight:bolder;
+    list-style-type:none;
+	float:left;
+	margin:0;
+	padding:0 30px;
+}
+
+.panel-title a {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+  margin: 0 0 0 2px;
+  vertical-align: top;
+}

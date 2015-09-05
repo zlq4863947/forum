@@ -1,0 +1,14 @@
+/* CSS Document */
+
+@charset "utf-8";
+
+
+.MenuButton {
+	padding:2px;
+	margin-top:10px;
+	margin-left:10px;
+	width:310px;
+	height:35px;
+	font-family: MS gothic;
+	font-size: 14px;
+}
