@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>CHAIMSパスワード変更</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="./css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="./css/sticky-footer-navbar.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="./assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="./js/ie-emulation-modes-warning.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+          <a class="navbar-brand" href="#"><img alt="Issue Icon" src="."></a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav" v-if="force">
+            <li><a href="top.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> 検索 <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="search_cust.html">顧客情報検索</a></li>
+                <li><a href="search_trans.html">取引情報検索</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="disabled"><a href="#">リスト判定結果判定</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> ユーザー情報 <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li class="disabled"><a href="#">ユーザー登録</a></li>
+                <li class="disabled"><a href="#">ユーザー編集</a></li>
+                <li class="disabled"><a href="#">ユーザー削除</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="chpass.html">パスワード変更</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="disabled"><a href="#">ユーザーグループ登録</a></li>
+                <li class="disabled"><a href="#">ユーザーグループ編集</a></li>
+                <li class="disabled"><a href="#">ユーザーグループ削除</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 認証ルール <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li class="disabled"><a href="#">認証ルール検索</a></li>
+                <li class="disabled"><a href="#">認証ルール登録</a></li>
+                <li class="disabled"><a href="#">認証ルール編集</a></li>
+                <li class="disabled"><a href="#">認証ルール削除</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-file" aria-hidden="true"></span> ファイルダウンロード <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li class="disabled"><a href="#">日次トランザクションレポート</a></li>
+                <li class="disabled"><a href="#">月次トランザクションレポート</a></li>
+                <li class="disabled"><a href="#">ACS月次レポート</a></li>
+              </ul>
+            </li>
+          </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">SystemAdmin0307</a></li>
+        <li><a href="login.html">ログアウト <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a></li>
+      </ul>
+
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <!-- Begin page content -->
+    <div class="container" id="app">
+
+      <div class="page-header" v-on:click="force = !force" >
+        <h1><span class="glyphicon glyphicon-user" aria-hidden="true"></span> パスワード変更
+          <small>登録しているユーザーのパスワードを変更する</small></h1>
+      </div>
+
+      <div class="form-group row" v-if=" s % 4 === 1">
+        <div class="col-md-6 col-md-offset-3 alert alert-warning" role="alert">
+          旧パスワードは正しくありません。<br>
+          新パスワードのフォーマットが不正です。（）<br>
+          確認パスワードと新パスワードは一致しません。
+        </div>
+      </div>
+      <div class="form-group row" v-else-if=" s % 4  === 3">
+        <div class="col-md-6 col-md-offset-3 alert alert-danger" role="alert"  v-on:click="s += 1">
+          パスワード変更後の二日間内、パスワードの再変更ができない。<br>前回パスワード変更日時【20xx年xx月xx日xx分xx秒】
+        </div>
+      </div>
+      <div class="form-group row" v-else-if=" s % 4  === 2">
+        <div class="col-md-6 col-md-offset-3 alert alert-success" role="alert"  v-on:click="s += 1">
+          パスワード変更完了しました。
+        </div>
+      </div>
+    <form  v-if=" s % 4  < 2">
+      <div class="form-group row">
+        <label class="col-md-2 col-md-offset-3 col-form-label" for="old">旧パスワード</label>
+        <div class="col-md-4">
+          <input type="password" class="form-control" id="old" placeholder="旧パスワード">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-2 col-md-offset-3 col-form-label" for="new">新パスワード</label>
+        <div class="col-md-4">
+          <input type="password" class="form-control" id="new" placeholder="新パスワード">
+          <!-- <div class="help-block has-error">これは必須フィールドです</div> -->
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-2 col-md-offset-3 col-form-label" for="renew">確認パスワード</label>
+        <div class="col-md-4">
+          <input type="password" class="form-control" id="renew" placeholder="確認パスワード">
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-md-4 col-md-offset-5">
+          <button type="button" class="btn btn-primary" v-on:click="s += 1">変更</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="#" data-toggle="tooltip" data-placement="top" title="以下の記号は使用可能です。@`!#$%()*:+;[{,\|-=]}.^~/?_">パスワードに使用可能記号</a>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">Copyright 2017 @ nttdata.</p>
+      </div>
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="./js/jquery.min.js"><\/script>')</script>
+    <script src="./js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="./ie10-viewport-bug-workaround.js"></script>
+
+    <script type="text/javascript">
+      var data = {
+        s : 0,
+        force : false
+      }
+      var app = new Vue({
+        el: '#app',
+        data: data
+      });
+
+      var app2 = new Vue({
+        el: '#navbar',
+        data: data
+      });
+
+
+
+    </script>
+
+  </body>
+</html>
