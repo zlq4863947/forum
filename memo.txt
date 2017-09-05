@@ -1,3 +1,6 @@
 http://blog.csdn.net/zy_27_ok/article/details/53708958
 https://docs.influxdata.com/chronograf/v1.3/guides/transition-web-admin-interface/
 https://docs.influxdata.com/chronograf/v1.3/introduction/getting-started/
+
+https://bitbankcc.backlog.jp/view/BRONXDB-5/edit
+https://trello.com/b/JLLh4Wmu/syaku
