@@ -11,3 +11,6 @@ https://zhuanlan.zhihu.com/shimo
 
 
 kafka?
+
+区块链技术指南
+https://www.gitbook.com/book/yeasy/blockchain_guide/details
