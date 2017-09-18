@@ -17,3 +17,5 @@ https://www.gitbook.com/book/yeasy/blockchain_guide/details
 
 短链接服务
 bit.ly
+
+https://www.wantedly.com/companies/bitbank
