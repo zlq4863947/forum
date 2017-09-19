@@ -9,6 +9,8 @@ b blog
 https://jedipunkz.github.io/blog/2015/12/28/chronograf-telegraf-influxdb/
 https://zhuanlan.zhihu.com/shimo
 
+b-sit
+https://brew.sh/index_zh-cn.html
 
 kafka?
 
