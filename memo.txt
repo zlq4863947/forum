@@ -20,4 +20,7 @@ https://www.gitbook.com/book/yeasy/blockchain_guide/details
 短链接服务
 bit.ly
 
+测试沙龙演讲稿：docker 搭建测试环境的实践
+https://testerhome.com/topics/8229
+
 https://www.wantedly.com/companies/bitbank
