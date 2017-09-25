@@ -24,3 +24,7 @@ bit.ly
 https://testerhome.com/topics/8229
 
 https://www.wantedly.com/companies/bitbank
+
+
+log等级说明
+http://www.jianshu.com/p/ac2da4142259
