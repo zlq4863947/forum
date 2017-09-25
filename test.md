@@ -34,7 +34,7 @@
 | tv-data-table__cell--symbol-cell | 商品字段的特殊格式化器 |
 | tv-data-table__cell--right-align | 它将单元格值右对齐 |
 d
-#### Price.All
+#### Price.All 日本株全銘柄
 | class名   |   描述  |
 |--------------|----------------|
 | tv-data-table__cell--symbol-cell | 商品字段的特殊格式化器 |
