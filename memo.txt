@@ -28,3 +28,7 @@ https://www.wantedly.com/companies/bitbank
 
 log等级说明
 http://www.jianshu.com/p/ac2da4142259
+
+技术选型 : 
+https://stackshare.io/
+https://sdk.cn/
