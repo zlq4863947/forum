@@ -4,8 +4,8 @@
 
 ## 方法
 
-* 订阅图表事件
-  * [Price.All](#priceall)
+* 株価一覧表
+  * [Price.All 日本株全銘柄](#priceall-日本株全銘柄)
 
 
 ## 株価一覧表
