@@ -5,7 +5,7 @@
 ## 方法
 
 * 订阅图表事件
-  * [Price.All](#Price.All)
+  * [Price.All](#priceall)
 
 
 ## 株価一覧表
