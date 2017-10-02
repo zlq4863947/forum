@@ -32,3 +32,6 @@ http://www.jianshu.com/p/ac2da4142259
 https://stackshare.io/stackups/influxdb-vs-mongodb
 https://www.ctolib.com
 https://sdk.cn/
+
+dde工具：
+http://www.chrisoldwood.com/win32.htm
