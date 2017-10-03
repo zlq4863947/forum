@@ -35,3 +35,5 @@ https://sdk.cn/
 
 dde工具：
 http://www.chrisoldwood.com/win32.htm
+
+ws测试用例：https://stackoverflow.com/questions/15509231/unit-testing-node-js-and-websockets-socket-io
