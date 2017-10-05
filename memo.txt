@@ -50,3 +50,6 @@ https://segmentfault.com/a/1190000007221668#articleHeader7
 
 zipline
 https://rainx.gitbooks.io/-zipline/content/
+
+rxjs官方文档翻译
+https://buctwbzs.gitbooks.io/rxjs/content/
