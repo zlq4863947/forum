@@ -33,6 +33,8 @@ https://stackshare.io/stackups/influxdb-vs-mongodb
 https://www.ctolib.com
 https://sdk.cn/
 
+流行库查询：https://david-dm.org/
+
 dde工具：
 http://www.chrisoldwood.com/win32.htm
 
