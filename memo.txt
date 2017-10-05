@@ -53,3 +53,5 @@ https://rainx.gitbooks.io/-zipline/content/
 
 rxjs官方文档翻译
 https://buctwbzs.gitbooks.io/rxjs/content/
+
+机器学习和深度神经网络
