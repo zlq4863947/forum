@@ -37,3 +37,5 @@ dde工具：
 http://www.chrisoldwood.com/win32.htm
 
 ws测试用例：https://stackoverflow.com/questions/15509231/unit-testing-node-js-and-websockets-socket-io
+
+Headless Chrome指在headless模式下运行谷歌浏览器。本质就是不用谷歌运行谷歌
