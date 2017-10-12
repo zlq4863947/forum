@@ -54,4 +54,7 @@ https://rainx.gitbooks.io/-zipline/content/
 rxjs官方文档翻译
 https://buctwbzs.gitbooks.io/rxjs/content/
 
+异步装饰器
+http://innolitics.com/10x/javascript-decorators-for-promise-returning-functions/
+
 机器学习和深度神经网络
