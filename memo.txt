@@ -57,4 +57,7 @@ https://buctwbzs.gitbooks.io/rxjs/content/
 异步装饰器
 http://innolitics.com/10x/javascript-decorators-for-promise-returning-functions/
 
+学习 Next.js
+https://github.com/developerworks/learnnextjs-cn-docs/blob/master/01.get-started.md
+
 机器学习和深度神经网络
