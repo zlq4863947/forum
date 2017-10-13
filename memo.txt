@@ -61,4 +61,7 @@ http://innolitics.com/10x/javascript-decorators-for-promise-returning-functions/
 学习 Next.js
 https://github.com/developerworks/learnnextjs-cn-docs/blob/master/01.get-started.md
 
+用node-http-proxy搭建谷歌代理
+http://blog.csdn.net/jaye100/article/details/50099839
+
 机器学习和深度神经网络
