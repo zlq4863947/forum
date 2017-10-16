@@ -67,6 +67,9 @@ https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference
 全栈工程师之路-Node.js
 https://i5ting.github.io/nodejs-fullstack/#1
 
+プログラマの技術情報共有サービス
+https://qiita.com/
+
 用node-http-proxy搭建谷歌代理
 http://blog.csdn.net/jaye100/article/details/50099839
 
